@@ -1,7 +1,4 @@
 
-
-import React from 'react'
-
 const About = () => {
     
   return (
@@ -13,7 +10,7 @@ const About = () => {
             </h4>
             <h2 className="text-3xl md:text-5xl font-[500] ">
                 Welcome to 
-                <span className="text-[#367272] ml-2">Serenity</span>
+                <span className="text-[#367272]"> Serenity</span>
             </h2>
             <p className="text-[#575757] font-[400] text-lg ">
                 Lorem ipsum dolor sit amet consectetur. Mauris hendrerit aliquam nisi sit

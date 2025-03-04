@@ -1,8 +1,8 @@
 
 import {Poppins} from 'next/font/google';
 import "./globals.css";
-import Nav from '@/components/Home/Navbar/Nav';
-import Footer from '@/components/Home/Footer/Footer';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
 
 
 const font = Poppins({
