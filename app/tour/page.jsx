@@ -1,8 +1,11 @@
+import Destination from '@/components/Home/Destination/Destination'
 import React from 'react'
 
 const TourPage = () => {
   return (
-    <div>TourPage</div>
+    <div>
+      <Destination/>
+    </div>
   )
 }
 

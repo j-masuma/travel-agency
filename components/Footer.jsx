@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <div
     //h-[550px] min-h-screen
-      className=" bg-cover m-1 rounded-2xl "
+      className=" bg-cover m-1 sm:m-2 rounded-2xl "
       style={{
         backgroundImage: 'url("/images/footer-bg.png")',
       }}
@@ -20,7 +20,7 @@ const Footer = () => {
       <div className="h-full flex flex-col text-center justify-between items-center text-white pt-10 md:pt-16  py-6 w-full">
     
         <div className="flex flex-col  justify-center items-center gap-6 ">
-            <h1 className="text-xl sm:text-4xl md:text-[3rem] w-[95%] ">
+            <h1 className="text-xl sm:text-4xl md:text-[3rem] w-[95%] font-[500] ">
             Find the Perfect trip for you and discover Extraordinary adventures with us! 
             </h1>
 
@@ -43,7 +43,7 @@ const Footer = () => {
                 LOGO
             </div>
            <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
-                <div>
+                <div className="cursor-pointer">
                     LOGO
                 </div>
                 <div className="flex gap-4 md:gap-3 justify-center items-center">
