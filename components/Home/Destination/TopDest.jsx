@@ -1,21 +1,23 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from "react";
-import { HiArrowLongLeft, HiArrowLongRight } from "react-icons/hi2";
+import React, { useRef, useState, useLayoutEffect, useMemo } from "react";
+import { gsap } from "gsap";
+
 const TopDest = () => {
   return (
     <div>
-        <div className="flex flex-col gap-4 mx-8">
-            <h4 className=" text-sm sm:text-lg md:text-2xl">
+        <div className="flex flex-col gap-8 ">
+            <h4 className=" text-sm sm:text-lg md:text-2xl mx-8">
                 Top Destinations
             </h4>
-            <div className='flex justify-between items-end'>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-[500] w-[50%]">
-                    <span className="text-[#367272]"> Discover </span>
-                    Your Next Dream
-                    <span className="text-[#367272]"> Destination</span>
+      
+            <div className='flex flex-col md:flex-row justify-between md:items-end gap-4 mx-8 '>
+                <h2 className=" font-[500]  text-xl sm:text-2xl  md:text-3xl lg:text-4xl">
+                    <span className="text-[#367272]  text-2xl  sm:text-3xl md:text-4xl lg:text-5xl"> Discover </span>
+                    Your Next <br /> Dream
+                    <span className="text-[#367272] text-2xl  sm:text-3xl md:text-4xl lg:text-5xl"> Destination</span>
                 </h2>
-                <p className="text-[#575757] font-[400] text-lg w-[50%] text-right">
+                <p className="text-[#575757] font-[400] text-lg md:w-[50%] md:text-right">
                     Lorem ipsum dolor sit amet consectetur. Mauris hendrerit aliquam nisi sit
                     eget sit. Natoque placerat eu volutpat est pellentesque bibendum iaculis sit.
                 </p>
@@ -31,120 +33,130 @@ const TopDest = () => {
 
 
  
-const topPicks = [
-    { 
-        id: 1, 
-        name: 'Lorem Ipsum Doler1', 
-        desc : 'lorem ipsum dolor sit amet',
-        image: '/images/about-1.png'
-     },
-    { 
-        id: 2, 
-        name: 'Lorem Ipsum Doler2', 
-        desc : 'lorem ipsum dolor sit amet',
-        image: '/images/about-1.png' },
-    { 
-        id: 3, 
-        name: 'Lorem Ipsum Doler3', 
-        desc : 'lorem ipsum dolor sit amet',
-        image: '/images/about-1.png' },
-    { 
-        id: 4, 
-        name: 'Lorem Ipsum Doler4', 
-        desc : 'lorem ipsum dolor sit amet',
-        image: '/images/about-1.png' 
-    },
-    { 
-        id: 5, 
-        name: 'Lorem Ipsum Doler5', 
-        desc : 'lorem ipsum dolor sit amet',
-        image: '/images/about-1.png' 
-    },
-    { 
-        id: 6, 
-        name: 'Lorem Ipsum Doler6', 
-        desc : 'lorem ipsum dolor sit amet',
-        image: '/images/about-1.png' 
-    },
-    { 
-        id: 7, 
-        name: 'Lorem Ipsum Doler7', 
-        desc : 'lorem ipsum dolor sit amet',
-        image: '/images/about-1.png' 
-    },
-    { 
-        id: 8, 
-        name: 'Lorem Ipsum Doler8', 
-        desc : 'lorem ipsum dolor sit amet',
-        image: '/images/about-1.png' 
-    },
-  ];
+
+
+
+
+const destinations = [
+  {
+    id: 1,
+    image: "/images/d1.png",
+    title: "Lorem Ipsum Dolor", 
+    description: "Lorem ipsum dolor sit amet consectetur. Vivamus vitae nisi eget in sit et  integer vestibulumiva  hello mus vitae nisi eget in sit et  integer vestibulum",
+  },
+  {
+    id: 2,
+    image: "/images/d2.png",
+    title: "Lorem Ipsum Dolor",
+    description: "Lorem ipsum dolor sit amet consectetur. Vivamus vitae nisi eget in sit et  integer vestibulumiva  hello mus vitae nisi eget in sit et  integer vestibulum",
+  },
+  {
+    id: 3,
+    image: "/images/d1.png",
+    title: "Lorem Ipsum Dolor",
+    description: "Lorem ipsum dolor sit amet consectetur. Vivamus vitae nisi eget in sit et  integer vestibulumiva  hello mus vitae nisi eget in sit et  integer vestibulum",
+  },
+  {
+    id: 4,
+    image: "/images/d2.png",
+    title: "Lorem Ipsum Dolor",
+    description: "Lorem ipsum dolor sit amet consectetur. Vivamus vitae nisi eget in sit et  integer vestibulumiva  hello mus vitae nisi eget in sit et  integer vestibulum",
+  },
+  {
+    id: 5,
+    image: "/images/d1.png",
+    title: "Lorem Ipsum Dolor",
+    description: "Lorem ipsum dolor sit amet consectetur. Vivamus vitae nisi eget in sit et  integer vestibulumiva  hello mus vitae nisi eget in sit et  integer vestibulum",
+  },
+  {
+    id: 6,
+    image: "/images/d2.png",
+    title: "Lorem Ipsum Dolor",
+    description: "Lorem ipsum dolor sit amet consectetur. Vivamus vitae nisi eget in sit et  integer vestibulumiva  hello mus vitae nisi eget in sit et  integer vestibulum",
+  },
+];
 
 export const TopPicks = () => {
+  const scrollContainerRef = useRef(null);
+  const animationRef = useRef(null);
+  const [isHovering, setIsHovering] = useState(false);
 
-  const [index, setIndex] = useState(0);
+  // Memoized destinations array (looping effect)
+  const displayedDestinations = useMemo(() => [...destinations, ...destinations], []);
 
-  const nextSlide = () => {
-    setIndex((prevIndex) => (prevIndex + 1) % topPicks.length);
-  };
+  useLayoutEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
 
-  const prevSlide = () => {
-    setIndex((prevIndex) => (prevIndex - 1 + topPicks.length) % topPicks.length);
-  };
+    const itemWidth = scrollContainer.firstChild?.offsetWidth || 300;
+    const totalWidth = itemWidth * destinations.length + 24 * destinations.length;
 
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 3000); 
-    return () => clearInterval(interval); 
-  }, []);
+    if (animationRef.current) animationRef.current.kill();
 
-  const getVisibleTopPicks = () => {
-    const windowWidth = window.innerWidth;
-    if (windowWidth < 550) return 1;
-    if (windowWidth < 768) return 2;
-    return 3;
-  };
+    animationRef.current = gsap.to(scrollContainer, {
+      x: -totalWidth,
+      duration: window.innerWidth < 768 ? 30 : 20,
+      ease: "none",
+      repeat: -1,
+      paused: isHovering,
+      force3D: true,
+    });
 
-  const visibleTopPicks = getVisibleTopPicks();
+    const handleResize = () => {
+      animationRef.current?.kill();
+      animationRef.current = gsap.to(scrollContainer, {
+        x: -totalWidth,
+        duration: window.innerWidth < 768 ? 30 : 20,
+        ease: "none",
+        repeat: -1,
+        paused: isHovering,
+        force3D: true,
+      });
+    };
 
-  const visibleItems = [
-    ...topPicks.slice(index, index + visibleTopPicks),
-    ...topPicks.slice(0, Math.max(0, index + visibleTopPicks - topPicks.length)),
-  ];
+    window.addEventListener("resize", handleResize);
+    return () => {
+      animationRef.current?.kill();
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isHovering]);
 
   return (
-    <div className="featured-topPicks">
-       
-        
-                {/* <button className="carousel-control prev" onClick={prevSlide}>
-                    <HiArrowLongLeft size={20}/>
-                </button> */}
-                <div className="flex justify-center gap-4">
-                {visibleItems.map((place, i) => (
-                    <div key={place.id + "-" + i} className="flex flex-col gap-2">
-                        <img src={place.image} alt="place" className="" />
-                        <div>
-                            <p className="text-2xl font-[500]">{place.name}</p>
-                            <p className="text-lg text-gray-500">{place.desc}</p>
-                        </div>
-                    </div>
-                ))}
-                </div>
-                {/* <button className="carousel-control next" onClick={nextSlide}>
-                    <HiArrowLongRight size={20} />
-                </button> */}
-       
-    </div>
+    <section className="py-10 container mx-auto">
+      
+
+      {/* Slider Container */}
+      <div className="overflow-hidden">
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-6 py-4 pb-12"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+          style={{
+            display: "flex",
+            willChange: "transform",
+            transform: "translateZ(0)",
+          }}
+        >
+          {displayedDestinations.map((destination, index) => (
+            <div
+              key={index}
+              className={`flex-shrink-0 ${index % 2 === 0 ? "mt-16 w-[300px]" : "mb-12 w-[380px]"}`}
+            >
+              <div className="rounded-lg overflow-hidden shadow-md h-64 transition-transform duration-300 hover:scale-110 hover:shadow-lg">
+                <img src={destination.image} alt={destination.title} className="w-full h-full object-cover" />
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-[500]">{destination.title}</h3>
+                <p className="text-gray-600 text-sm mt-2">{destination.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
-
-
-
-
-
-
-
-
-
 
 
 

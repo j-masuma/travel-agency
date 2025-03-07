@@ -36,6 +36,7 @@ const Footer = () => {
                   />
                 </span>
             </button>
+
             
         </div>
         <div className="w-[93%]">

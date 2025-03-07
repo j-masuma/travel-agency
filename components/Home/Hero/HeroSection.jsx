@@ -24,20 +24,20 @@ function HeroSection() {
             <p className=" text-base leading-relaxed sm:text-lg">
                 Want a fully personalized travel experience? Design your own itinerary, choose your destinations, and travel at your own pace.
             </p>
-            <button className="inline-block w-fit text-lg border-[1.5px] p-2 rounded-lg cursor-pointer hover:bg-white hover:text-black transform transition-transform duration-300">
+            <button className="inline-block w-fit text-lg border-[1.5px] p-2 rounded-lg cursor-pointer hover:border-white hover:bg-white hover:text-black transition-all duration-500 ease-in-out">
                 Explore Now
             </button>
             
         </div>
         <div className="flex md:flex-col gap-2 justify-center items-center">
-            <Link href="/" className="p-2 bg-white rounded-full hover:bg-gray-200 text-black">
-                <FaFacebookF size={20}/>
+            <Link href="/" className="p-2 bg-white rounded-full hover:bg-black hover:text-white transition-all ease-in-out duration-300 text-black">
+                <FaFacebookF className="w-[20px] h-[20px] md:w-[25px] md:h-[25px]"/>
             </Link>
-            <Link href="/" className="p-2 bg-white rounded-full hover:bg-gray-200 text-black">
-                <FaInstagram size={25}/>
+            <Link href="/" className="p-2 bg-white rounded-full hover:bg-black hover:text-white transition-all ease-in-out duration-300 text-black">
+                <FaInstagram className="w-[20px] h-[20px] md:w-[25px] md:h-[25px]"/>
             </Link>
-            <Link href="/" className="p-2 bg-white rounded-full hover:bg-gray-200 text-black">
-                <FaXTwitter size={25}/>
+            <Link href="/" className="p-2 bg-white rounded-full hover:bg-black hover:text-white transition-all ease-in-out duration-300 text-black">
+                <FaXTwitter className="w-[20px] h-[20px] md:w-[25px] md:h-[25px]"/>
             </Link>
         </div>
       </div>

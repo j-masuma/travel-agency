@@ -6,11 +6,11 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 const Pakage = () => {
   return (
     <div className='m-8 space-y-4 py-12'>
-        <div className='flex'>
-            <h4 className="w-[50%] text-sm sm:text-lg md:text-2xl">
+        <div className='flex flex-col gap-4 md:flex-row'>
+            <h4 className="md:w-[50%] text-sm sm:text-lg md:text-2xl">
                 Top Pakages
             </h4>
-            <div className='w-[50%] space-y-4'>
+            <div className='md:w-[50%] space-y-4'>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-[500] ">
                     Top Tours To 
                     <span className="text-[#367272] "> Spark </span>
@@ -103,50 +103,50 @@ export const TopPakages = () => {
   const progress = ((index + 1) / pakages.length) * 100;
   return (
     
-    <div className=" mr-4">
+    <div className="mr-2 md:mr-4">
         {visibleItems.map((pack, i) => (
             <div key={pack.id + "-" + i} className="space-y-4">
-                <div className='flex justify-between items-center'>
+                <div className='flex  justify-between items-center'>
                     <div className="w-[35%] bg-gray-200 h-1 rounded-full overflow-hidden">
                         <div className="h-full bg-[#154242] transition-all duration-300" style={{ width: `${progress}%` }}></div>
                     </div>
                     <div className='flex gap-2'>
-                        <button className="text-[#286C6C] border-[1px] px-2 py-1 border-[#F2F2F2] rounded cursor-pointer hover:bg-black hover:text-white transform transition-transform duration-300" onClick={prevSlide}>
+                        <button className="text-[#286C6C] border-[1px] px-2 py-1 border-[#F2F2F2] rounded cursor-pointer hover:bg-black hover:text-white transition-all ease-in-out duration-300" onClick={prevSlide}>
                             <IoIosArrowBack  size={20}/>
                         </button>
-                        <button className="text-[#286C6C] border-[1px] px-2 py-1 border-[#F2F2F2] rounded cursor-pointer hover:bg-black hover:text-white transform transition-transform duration-300" onClick={nextSlide}>
+                        <button className="text-[#286C6C] border-[1px] px-2 py-1 border-[#F2F2F2] rounded cursor-pointer hover:bg-black hover:text-white transition-all ease-in-out duration-300" onClick={nextSlide}>
                             <IoIosArrowForward size={20} />
                         </button>
                     </div>
                 </div>
-                <div className='flex gap-6'>
-                    <div className='w-[26%] space-y-4'>
-                        <img src={pack.image1} alt="dest" className="w-full rounded-2xl aspect-square" />
-                        <p className='text-2xl'>{pack.name1}</p>
+                <div className='flex flex-col md:flex-row gap-2 sm:gap-4 md:gap-6'>
+                    <div className='w-[50%] md:w-[26%]  flex md:flex-col gap-4'>
+                        <img src={pack.image1} alt="dest" className="w-full rounded-lg md:rounded-2xl aspect-square" />
+                        <p className='text-lg md:text-2xl'>{pack.name1}</p>
                     </div>
-                    <div className='w-[48%] space-y-4'>
-                        <img src={pack.image2} alt="dest" className="w-full  rounded-2xl " />
-                        <div className='space-y-4'>
-                            <div className='flex justify-between'>
-                                <p className='text-2xl'>{pack.name1}</p>
-                                <p className='text-[16px]'>4 Days<span className='text-gray-500'>/3 Nights</span></p>
+                    <div className='w-[100%] md:w-[48%] flex justify-center md:flex-col gap-4'>
+                        <img src={pack.image2} alt="dest" className="w-[50%] md:w-full  rounded-lg md:rounded-2xl " />
+                        <div className='space-y-2 md:space-y-4 w-[50%] md:w-full'>
+                            <div className='flex flex-col sm:flex-row justify-between '>
+                                <p className='text-lg md:text-2xl'>{pack.name1}</p>
+                                <p className='text-base leading-relaxed md:text-[16px]'>4 Days<span className='text-gray-500'>/3 Nights</span></p>
                             </div>
-                            <p className='text-lg text-gray-500 w-[90%]'>
+                            <p className='text-sm md:text-base leading-relaxed lg:text-lg text-gray-500 w-[95%]'>
                                 Lorem ipsum dolor sit amet consectetur. Vivamus vitae nisi eget in sit et  integer vestibulumiva.    
                             </p>
-                            <div className='flex justify-between'>
-                                <button className='text-lg border-[1px] rounded py-1 px-2'>
+                            <div className='flex flex-col md:flex-row justify-between gap-2'>
+                                <button className='text-sm md:text-base leading-relaxed lg:text-lg border-[1px] rounded py-1 px-2'>
                                     From ${pack.price}
                                 </button>
-                                <button className='text-lg border-[1px] rounded py-1 px-2 bg-[#154242] text-white cursor-pointer hover:bg-[#2b4a4a]'>
+                                <button className='text-sm md:text-base leading-relaxed lg:text-lg border-[1px] rounded py-1 px-2 bg-[#154242] text-white cursor-pointer hover:bg-[#2b4a4a]'>
                                     Book Now
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div className='w-[26%] space-y-4'>
-                        <img src={pack.image3} alt="dest" className="w-full rounded-2xl aspect-square" />
-                        <p className='text-2xl'>{pack.name3}</p>
+                    <div className='w-[50%] md:w-[26%]  flex md:flex-col gap-4 '>
+                        <img src={pack.image3} alt="dest" className=" w-full rounded-lg md:rounded-2xl aspect-square" />
+                        <p className=' text-lg md:text-2xl'>{pack.name3}</p>
                     </div>
                 </div>
                 

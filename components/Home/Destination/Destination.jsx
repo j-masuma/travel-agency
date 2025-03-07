@@ -18,10 +18,10 @@ function Destination() {
         </h2>
 
         {/* Search Destinations */}
-        <div className="flex flex-wrap items-end gap-4 ">
+        <div className="flex justify-center flex-wrap lg:flex-nowrap items-end gap-4 ">
 
             {/* Departure Date */}
-            <div className="flex flex-col">
+            <div className="flex flex-col w-[80%] md:w-[45%] lg:w-[24%]">
                 <label className="text-[#1E1E1E] text-[16px] md:text-lg mb-2">Departure</label>
                 <div className="flex justify-between items-center relative">
                     <CiCalendarDate className="absolute ml-2 sm:ml-4 w-[20px] h-[20px] md:w-[25px] md:h-[25px]"  />
@@ -29,7 +29,7 @@ function Destination() {
                         type="date"
                         value={departureDate}
                         onChange={(e) => setDepartureDate(e.target.value)}
-                        className=" pl-10 sm:pl-12 pr-4 py-2 border border-[#D9D9D9] text-lg md:text-xl rounded-md focus:outline-none  w-[300px] appearance-none  [&::-webkit-calendar-picker-indicator]:hidden"
+                        className=" pl-10 sm:pl-12 pr-4 py-2 border border-[#D9D9D9] text-lg md:text-xl rounded-md focus:outline-none  w-full appearance-none  [&::-webkit-calendar-picker-indicator]:hidden"
                         onFocus={(e) => (e.target.showPicker ? e.target.showPicker() : null)} 
    
                     />
@@ -37,13 +37,13 @@ function Destination() {
             </div>
 
             {/* Destination */}
-            <div className="flex flex-col">
+            <div className="flex flex-col w-[80%] md:w-[45%] lg:w-[24%]">
                 <label className="text-[#1E1E1E] text-[16px] md:text-lg mb-2">Destination</label>
                 <div className="relative flex items-center">
                     <select
                         value={destination}
                         onChange={(e) => setDestination(e.target.value)}
-                        className="px-4 py-2 border border-[#D9D9D9] text-lg md:text-xl rounded-md focus:outline-none appearance-none  w-[300px]"
+                        className="px-4 py-2 border border-[#D9D9D9] text-lg md:text-xl rounded-md focus:outline-none appearance-none  w-full"
                     >
                         <option>Thailand - Phuket</option>
                         <option>Malaysia - Kuala Lumpur</option>
@@ -59,15 +59,15 @@ function Destination() {
             </div>
 
             {/* Persons */}
-            <div className="flex flex-col">
+            <div className="flex flex-col w-[80%] md:w-[45%] lg:w-[24%]">
                 <label className="text-[#1E1E1E] text-[16px] md:text-lg mb-2">Persons</label>
-                <div className=" flex items-center relative">
+                <div className=" flex items-center w-full relative">
                     <BsPerson className="absolute ml-2 sm:ml-4 w-[20px] h-[20px] md:w-[25px] md:h-[25px]" />
-                    <div className="relative flex items-center">
+                    
                         <select
                             value={persons}
                             onChange={(e) => setDestination(e.target.value)}
-                            className="px-4 py-2 pl-10 border border-[#D9D9D9] text-lg md:text-xl rounded-md focus:outline-none appearance-none  w-[300px] pr-10"
+                            className="px-4 py-2 pl-10 border border-[#D9D9D9] text-lg md:text-xl rounded-md focus:outline-none appearance-none  w-full pr-10"
                         >
                             <option>2 Adult - 2 Children</option>
                             <option>1 Adult - 1 Child</option>
@@ -79,12 +79,12 @@ function Destination() {
                             className="absolute right-4  pointer-events-none"
                             size={20} 
                         />
-                    </div>
+                    
                 </div>
             </div>
 
             {/* Search Button */}
-            <button className="px-6 py-2 bg-[#154242] text-xl text-white rounded-md hover:bg-[#3d6e6e]  cursor-pointer transform transition-transform duration-300">
+            <button className="px-6 py-2  w-[80%] md:w-[45%] lg:w-[24%] bg-[#154242] text-xl text-white rounded-md hover:bg-[#3d6e6e]  cursor-pointer transform transition-transform duration-300">
                 Search Now
             </button>
         </div>
@@ -155,9 +155,9 @@ export const Dests = () => {
 
   return (
     
-    <div className=" mr-4">
+    <div className=" md:mr-4">
         {visibleItems.map((dest, i) => (
-            <div key={dest.id + "-" + i} className="flex flex-col items-center md:flex-row md:justify-between md:items-stretch  gap-4 w-full">
+            <div key={dest.id + "-" + i} className="flex flex-col items-center justify-center md:flex-row md:justify-between md:items-stretch  gap-4 w-full">
                 <div className='w-[80%]  md:w-[45%] flex justify-self-center'>
                     <img src={dest.image} alt="dest" className="w-full h-full rounded md:rounded-2xl aspact-square md:aspect-[9/8]" />
                 </div>
@@ -172,10 +172,10 @@ export const Dests = () => {
                             <p className='text-base leading-relaxed md:text-lg font-[500]'>{dest.id}<span className='text-[12px] text-gray-500'>/60</span></p>
                         </div>
                         <div className='flex gap-2'>
-                            <button className="text-[#286C6C] border-[1px] px-2 py-1 border-[#F2F2F2] rounded cursor-pointer hover:bg-black hover:text-white transform transition-transform duration-300" onClick={prevSlide}>
+                            <button className="text-[#286C6C] border-[1px] px-2 py-1 border-[#F2F2F2] rounded cursor-pointer hover:bg-black hover:text-white transition-all ease-in-out duration-300" onClick={prevSlide}>
                                 <IoIosArrowBack  size={20}/>
                             </button>
-                            <button className="text-[#286C6C] border-[1px] px-2 py-1 border-[#F2F2F2] rounded cursor-pointer hover:bg-black hover:text-white transform transition-transform duration-300" onClick={nextSlide}>
+                            <button className="text-[#286C6C] border-[1px] px-2 py-1 border-[#F2F2F2] rounded cursor-pointer hover:bg-black hover:text-white transition-all ease-in-out duration-300" onClick={nextSlide}>
                                 <IoIosArrowForward size={20} />
                             </button>
                         </div>
