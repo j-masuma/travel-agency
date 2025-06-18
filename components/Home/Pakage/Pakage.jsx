@@ -18,7 +18,7 @@ const Pakage = () => {
                     <span className="text-[#367272] "> Wonderlust!</span>
                 </h2>
                 <p className='text-lg'>
-                    Lorem ipsum dolor sit amet consectetur. Vivamus vitae nisi eget in sit et  integer vestibulum. Mi euismod id urna malesuada.
+                Golden hues painted the sky as the sun dipped below the horizon. The warm glow kissed the clouds, turning them shades of pink, orange, and lavender. Gentle waves shimmered with light, and a calm breeze whispered through the trees.
                 </p>
             </div>
         </div>
@@ -31,54 +31,53 @@ const Pakage = () => {
 
 
 
-
 const pakages = [
     { 
-        id: 1, 
-        image1 : '/images/pack-santorini-1.png',
-        image2 : '/images/pack-santorini-2.png',
-        image3 : '/images/pack-santorini-3.png',
-        name1 : 'Santorini Sunset ',
-        name: 'Santorini Sunset Escape', 
-        name3 : 'Santorini Sunset',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi eveniet iste architecto, eos impedit ipsum minima delectus ut neque, quis ullam hic? Exercitationem aspernatur reprehenderit reiciendis, debitis maiores eum!',
-        price : '910'
+      id: 1, 
+      image1: '/images/bliss1.png',
+      image2: '/images/bliss2.png',
+      image3: '/images/bliss3.png',
+      name1: 'Aegean Bliss',
+      name: 'Aegean Bliss Sunset Tour', 
+      name3: 'Aegean Bliss',
+      description: 'Experience the breathtaking Santorini sunset with a guided tour, perfect for couples and dreamers alike.',
+      price: '910'
     },
     { 
-        id: 2, 
-        image1 : '/images/pack-santorini-1.png',
-        image2 : '/images/pack-santorini-2.png',
-        image3 : '/images/pack-santorini-3.png',
-        name1 : 'Santorini Sunset ',
-        name: 'Santorini Sunset Escape', 
-        name3 : 'Santorini Sunset',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi eveniet iste architecto, eos impedit ipsum minima delectus ut neque, quis ullam hic? Exercitationem aspernatur reprehenderit reiciendis, debitis maiores eum!',
-        price : '915'
+      id: 2, 
+      image1: '/images/pack-santorini-1.png',
+      image2: '/images/pack-santorini-2.png',
+      image3: '/images/pack-santorini-3.png',
+      name1: 'Caldera Cruise',
+      name: 'Golden Caldera Evening Cruise', 
+      name3: 'Caldera Cruise',
+      description: 'Sail along the caldera as the sky turns gold, with wine, music, and unforgettable views of Santorini.',
+      price: '815'
     },
     { 
-        id: 3, 
-        image1 : '/images/pack-santorini-1.png',
-        image2 : '/images/pack-santorini-2.png',
-        image3 : '/images/pack-santorini-3.png',
-        name1 : 'Santorini Sunset ',
-        name: 'Santorini Sunset Escape', 
-        name3 : 'Santorini Sunset',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi eveniet iste architecto, eos impedit ipsum minima delectus ut neque, quis ullam hic? Exercitationem aspernatur reprehenderit reiciendis, debitis maiores eum!',
-        price : '930'
+      id: 3, 
+      image1: '/images/pak1.png',
+      image2: '/images/bliss2.png',
+      image3: '/images/pak2.png',
+      name1: 'Twilight Memories',
+      name: 'Santorini Twilight Memories Package', 
+      name3: 'Twilight Memories',
+      description: 'Capture magical moments as the sun sets over the Aegean Sea, with a professional photographer included.',
+      price: '630'
     },
     { 
-        id: 4, 
-        image1 : '/images/pack-santorini-1.png',
-        image2 : '/images/pack-santorini-2.png',
-        image3 : '/images/pack-santorini-3.png',
-        name1 : 'Santorini Sunset ',
-        name: 'Santorini Sunset Escape', 
-        name3 : 'Santorini Sunset',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi eveniet iste architecto, eos impedit ipsum minima delectus ut neque, quis ullam hic? Exercitationem aspernatur reprehenderit reiciendis, debitis maiores eum!',
-        price : '950'
+      id: 4, 
+      image1: '/images/luxe1.png',
+      image2: '/images/luxe2.png',
+      image3: '/images/luxe3.png',
+      name1: 'Oia Luxe',
+      name: 'Oia Luxe Sunset Dining Experience', 
+      name3: 'Oia Luxe',
+      description: 'Enjoy a luxurious evening with local cuisine and panoramic sunset views from the cliffs of Oia.',
+      price: '750'
     },
   ];
-
+  
 export const TopPakages = () => {
   const [index, setIndex] = useState(0);
 
@@ -132,13 +131,13 @@ export const TopPakages = () => {
                                 <p className='text-base leading-relaxed md:text-[16px]'>4 Days<span className='text-gray-500'>/3 Nights</span></p>
                             </div>
                             <p className='text-sm md:text-base leading-relaxed lg:text-lg text-gray-500 w-[95%]'>
-                                Lorem ipsum dolor sit amet consectetur. Vivamus vitae nisi eget in sit et  integer vestibulumiva.    
+                                {pack.description}
                             </p>
                             <div className='flex flex-col md:flex-row justify-between gap-2'>
                                 <button className='text-sm md:text-base leading-relaxed lg:text-lg border-[1px] rounded py-1 px-2'>
                                     From ${pack.price}
                                 </button>
-                                <button className='text-sm md:text-base leading-relaxed lg:text-lg border-[1px] rounded py-1 px-2 bg-[#154242] text-white cursor-pointer hover:bg-[#2b4a4a]'>
+                                <button className='text-sm md:text-base leading-relaxed lg:text-lg border-[1px] rounded py-1 px-2 bg-[#154242] text-white cursor-pointer transition transform duration-300 hover:bg-[#4a8080]'>
                                     Book Now
                                 </button>
                             </div>

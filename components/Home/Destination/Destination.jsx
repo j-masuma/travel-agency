@@ -102,34 +102,37 @@ function Destination() {
 
 
 
-
-
 const destinations = [
-    { 
-        id: 1, 
-        name: 'Lagoon View villa', 
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi eveniet iste architecto, eos impedit ipsum minima delectus ut neque, quis ullam hic? Exercitationem aspernatur reprehenderit reiciendis, debitis maiores eum!',
-        image: '/images/dest-1.png', minimage : 
-        '/images/destmini-1.png' },
-    { 
-        id: 2, 
-        name: 'Lagoon View villa', 
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi eveniet iste architecto, eos impedit ipsum minima delectus ut neque, quis ullam hic? Exercitationem aspernatur reprehenderit reiciendis, debitis maiores eum!',
-        image: '/images/about-2.png', 
-        minimage : '/images/destmini-1.png' },
-    { 
-        id: 3, 
-        name: 'Lagoon View villa', 
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi eveniet iste architecto, eos impedit ipsum minima delectus ut neque, quis ullam hic? Exercitationem aspernatur reprehenderit reiciendis, debitis maiores eum!',
-        image: '/images/about-3.png', 
-        minimage : '/images/destmini-1.png' },
-    { 
-        id: 4, 
-        name: 'Lagoon View villa', 
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi eveniet iste architecto, eos impedit ipsum minima delectus ut neque, quis ullam hic? Exercitationem aspernatur reprehenderit reiciendis, debitis maiores eum!',
-        image: '/images/dest-1.png', 
-        minimage : '/images/destmini-1.png' },
-  ];
+  { 
+    id: 1, 
+    name: 'Azure Lagoon Villa', 
+    description: 'Perched atop majestic cliffs, this resort delivers stunning sunset views and top-tier amenities. Experience gourmet dining, infinity pools, and cozy suites with breathtaking scenes of the Aegean Sea below.',
+    image: '/images/dest-1.png', 
+    minimage: '/images/destmini-1.png' 
+  },
+  { 
+    id: 2, 
+    name: 'Sunset Cliffside Resort', 
+    description: 'Nestled by the shore, this intimate bungalow offers direct beach access and uninterrupted ocean views. It’s perfect for romantic escapes, morning walks, or peaceful nights listening to the waves.',
+    image: '/images/about-2.png', 
+    minimage: '/images/destmini-1.png' 
+  },
+  { 
+    id: 3, 
+    name: 'Seabreeze Bungalow', 
+    description: 'Escape to this luxurious villa overlooking a crystal-clear lagoon. Surrounded by nature and designed for comfort, it is the ideal place to relax, unwind, and enjoy peaceful waterside views.',
+    image: '/images/about-3.png', 
+    minimage: '/images/destmini-1.png' 
+  },
+  { 
+    id: 4, 
+    name: 'Oasis Garden Retreat', 
+    description: 'Escape into lush greenery, unwind with nature, and enjoy stylish interiors. This garden retreat offers comfort, serenity, and the perfect place to reconnect with yourself.',
+    image: '/images/about-2.png', 
+    minimage: '/images/destmini-1.png' 
+  },
+];
+
 
 export const Dests = () => {
   const [index, setIndex] = useState(0);
@@ -163,8 +166,8 @@ export const Dests = () => {
                 </div>
                 <div className='w-[100%] md:w-[55%] flex flex-col justify-between gap-4 '>
                     <div className='mt-4 space-y-4 text-center md:text-left'>
-                        <h5 className='text-2xl md:text-3xl xl:text-4xl font-[500]'>Lagoon View villa</h5>
-                        <p className='text-base leading-relaxed md:text-lg text-[#555555]'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque excepturi eveniet iste architecto, eos impedit ipsum minima delectus ut neque, quis ullam hic? Exercitationem aspernatur reprehenderit reiciendis, debitis maiores eum!</p>
+                        <h5 className='text-2xl md:text-3xl xl:text-4xl font-[500]'>{dest.name}</h5>
+                        <p className='text-base leading-relaxed md:text-lg text-[#555555]'>{dest.description}</p>
                     </div>
                     <div className='flex flex-row justify-between items-end'>
                         <div className='flex items-end gap-2'>
