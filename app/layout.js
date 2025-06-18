@@ -13,6 +13,9 @@ const font = Poppins({
 export const metadata = {
   title: "Travel For You",
   description: "Travel landing Page",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
